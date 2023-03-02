@@ -1,5 +1,6 @@
 package br.ada.americadas.struts.helloworldstruts.customer;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,10 @@ public class CustomerDAO {
         }
         CUSTOMERS.put(customer.getIdentifier(), customer);
         return customer;
+    }
+
+    public List<Customer> findAll() {
+        return new ArrayList<>(CUSTOMERS.values());
     }
 
 }

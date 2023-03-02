@@ -12,5 +12,6 @@
         <struts:textfield label="Email" name="customer.email" />
         <struts:submit value="Cadastrar" />
     </struts:form>
-</body>
+    <a href="<struts:url action='list_customer' />">List</a>
+ </body>
 </html>
