@@ -8,6 +8,13 @@ import org.apache.struts2.convention.annotation.Result;
 @Namespace("/customer")
 public class RegisterAction extends ActionSupport {
 
+    private Customer customer;
+    private CustomerService service;
+
+    public RegisterAction() {
+        CustomerDAO dao = new CustomerDAO();
+        service = new CustomerService(dao);
+    }
 
     @Override
     @Action(value = "register_customer", results = {
@@ -16,8 +23,21 @@ public class RegisterAction extends ActionSupport {
     })
     public String execute() throws Exception {
         //Mundo livre
-        System.out.println("Chamou o register");
-        return SUCCESS;
+        try {
+            this.service.save(customer);
+            return SUCCESS;
+        } catch(Exception exception) {
+            exception.printStackTrace();
+            return ERROR;
+        }
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
 }

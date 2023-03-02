@@ -7,7 +7,9 @@
 </head>
 <body>
     <struts:form action="register_customer" method="post">
-        <struts:textfield label="Name" name="name" />
+        <struts:textfield label="Name" name="customer.name" />
+        <struts:textfield label="Document" name="customer.document" />
+        <struts:textfield label="Email" name="customer.email" />
         <struts:submit value="Cadastrar" />
     </struts:form>
 </body>
